@@ -120,9 +120,13 @@ Pengaduan_warga/
 
 ## Akun Default
 
-### Admin
-- **Email**: admin@pengaduan.com
-- **Password**: admin123
+### Akun Default
+- **Email**: user@demo.com
+- **Password**: password123
+
+- - **Email**: admin@demo.com
+- **Password**: password123
+
 
 ## Penggunaan
 
