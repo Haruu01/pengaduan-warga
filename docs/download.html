@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - Sistem Pengaduan Warga</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .download-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bullhorn me-2"></i>Sistem Pengaduan Warga</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="demo.html">Demo</a>
+                <a class="nav-link active" href="download.html">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Download & Deploy</h1>
+            <p class="lead mb-4">Dapatkan source code lengkap dan deploy ke hosting Anda</p>
+            <a href="index.html" class="btn btn-outline-light"><i class="fas fa-arrow-left me-2"></i>Kembali ke Home</a>
+        </div>
+    </section>
+
+    <!-- Download Options -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Pilihan Download</h2>
+                <p class="text-muted">Pilih metode download yang sesuai dengan kebutuhan Anda</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card download-card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="fab fa-github fa-4x text-primary mb-3"></i>
+                            <h5 class="card-title">GitHub Repository</h5>
+                            <p class="card-text">Clone repository untuk development atau kontribusi</p>
+                            <div class="code-block mb-3">
+                                git clone https://github.com/Haruu01/pengaduan-warga.git
+                            </div>
+                            <a href="https://github.com/Haruu01/pengaduan-warga" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Buka Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card download-card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-download fa-4x text-success mb-3"></i>
+                            <h5 class="card-title">Download ZIP</h5>
+                            <p class="card-text">Download file ZIP siap upload ke hosting</p>
+                            <div class="mb-3">
+                                <span class="badge bg-success">Recommended</span>
+                            </div>
+                            <a href="https://github.com/Haruu01/pengaduan-warga/archive/main.zip" class="btn btn-success">
+                                <i class="fas fa-download me-2"></i>Download ZIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card download-card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-book fa-4x text-info mb-3"></i>
+                            <h5 class="card-title">Documentation</h5>
+                            <p class="card-text">Panduan lengkap instalasi dan deployment</p>
+                            <div class="mb-3">
+                                <span class="badge bg-info">Essential</span>
+                            </div>
+                            <a href="https://github.com/Haruu01/pengaduan-warga/blob/main/README.md" class="btn btn-info" target="_blank">
+                                <i class="fas fa-book me-2"></i>Read Docs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Steps -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Langkah Instalasi</h2>
+                <p class="text-muted">Ikuti langkah berikut untuk menginstall aplikasi</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Step 1 -->
+                    <div class="d-flex mb-4">
+                        <div class="step-number me-3">1</div>
+                        <div>
+                            <h5>Download Source Code</h5>
+                            <p>Download file ZIP atau clone repository dari GitHub</p>
+                            <div class="code-block">
+                                # Via Git<br>
+                                git clone https://github.com/Haruu01/pengaduan-warga.git<br><br>
+                                # Atau download ZIP dari GitHub
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="d-flex mb-4">
+                        <div class="step-number me-3">2</div>
+                        <div>
+                            <h5>Setup Database</h5>
+                            <p>Buat database MySQL dan import struktur tabel</p>
+                            <div class="code-block">
+                                CREATE DATABASE pengaduan_warga;<br>
+                                mysql -u username -p pengaduan_warga < database/pengaduan_warga.sql
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="d-flex mb-4">
+                        <div class="step-number me-3">3</div>
+                        <div>
+                            <h5>Konfigurasi Database</h5>
+                            <p>Edit file konfigurasi database di <code>app/config/config.php</code></p>
+                            <div class="code-block">
+                                define('DB_HOST', 'localhost');<br>
+                                define('DB_USER', 'your_username');<br>
+                                define('DB_PASS', 'your_password');<br>
+                                define('DB_NAME', 'pengaduan_warga');<br>
+                                define('BASE_URL', 'http://yourdomain.com/');
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="d-flex mb-4">
+                        <div class="step-number me-3">4</div>
+                        <div>
+                            <h5>Upload ke Hosting</h5>
+                            <p>Upload semua file ke hosting dan set permissions</p>
+                            <div class="code-block">
+                                # Set permissions untuk upload directory<br>
+                                chmod 755 public/<br>
+                                chmod 777 public/uploads/
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="d-flex mb-4">
+                        <div class="step-number me-3">5</div>
+                        <div>
+                            <h5>Test Aplikasi</h5>
+                            <p>Akses aplikasi dan test login admin</p>
+                            <div class="alert alert-info">
+                                <strong>Default Login Admin:</strong><br>
+                                PIN: 2024<br>
+                                Email: admin@pengaduan.com<br>
+                                Password: admin123
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">System Requirements</h2>
+                <p class="text-muted">Pastikan hosting Anda memenuhi persyaratan berikut</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fab fa-php me-2 text-primary"></i>Server Requirements</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>PHP 7.4 atau lebih tinggi</li>
+                                <li><i class="fas fa-check text-success me-2"></i>MySQL 5.7 atau lebih tinggi</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Apache/Nginx web server</li>
+                                <li><i class="fas fa-check text-success me-2"></i>mod_rewrite enabled</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-cogs me-2 text-primary"></i>PHP Extensions</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>PDO MySQL</li>
+                                <li><i class="fas fa-check text-success me-2"></i>GD Library</li>
+                                <li><i class="fas fa-check text-success me-2"></i>mbstring</li>
+                                <li><i class="fas fa-check text-success me-2"></i>fileinfo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Butuh Bantuan?</h2>
+            <p class="lead mb-4">Jika mengalami kesulitan dalam instalasi, jangan ragu untuk menghubungi kami</p>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body text-center">
+                            <i class="fab fa-github fa-3x mb-3"></i>
+                            <h5>GitHub Issues</h5>
+                            <p>Laporkan bug atau minta bantuan</p>
+                            <a href="https://github.com/Haruu01/pengaduan-warga/issues" class="btn btn-light" target="_blank">Open Issue</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card bg-transparent border-light">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x mb-3"></i>
+                            <h5>Documentation</h5>
+                            <p>Baca panduan lengkap</p>
+                            <a href="https://github.com/Haruu01/pengaduan-warga/blob/main/DEPLOYMENT.md" class="btn btn-light" target="_blank">Read Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-bullhorn me-2"></i>Sistem Pengaduan Warga</h5>
+                    <p class="mb-0">Open source project untuk sistem pengaduan masyarakat</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2024 Haruu01. MIT License.</p>
+                    <div class="mt-2">
+                        <a href="https://github.com/Haruu01/pengaduan-warga" class="text-white me-3"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fas fa-star"></i></a>
+                        <a href="#" class="text-white"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

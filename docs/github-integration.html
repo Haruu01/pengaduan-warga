@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Integration - Sistem Pengaduan Warga</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .step-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bullhorn me-2"></i>Sistem Pengaduan Warga</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="app.html">Live App</a>
+                <a class="nav-link" href="demo.html">Demo</a>
+                <a class="nav-link active" href="github-integration.html">GitHub Integration</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="fab fa-github me-3"></i>GitHub Integration
+            </h1>
+            <p class="lead mb-4">
+                Simpan pengaduan sebagai GitHub Issues untuk transparansi dan akses publik
+            </p>
+            <a href="app.html" class="btn btn-light btn-lg me-3">
+                <i class="fas fa-rocket me-2"></i>Coba Sekarang
+            </a>
+            <a href="#setup" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-cog me-2"></i>Panduan Setup
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Keunggulan GitHub Integration</h2>
+                <p class="text-muted">Mengapa menggunakan GitHub Issues untuk menyimpan pengaduan?</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h5>Transparansi Publik</h5>
+                    <p class="text-muted">Semua pengaduan dapat dilihat publik di GitHub repository, meningkatkan transparansi pemerintahan.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h5>Riwayat Lengkap</h5>
+                    <p class="text-muted">GitHub menyimpan semua perubahan status dan komentar dengan timestamp yang akurat.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h5>Diskusi Terbuka</h5>
+                    <p class="text-muted">Masyarakat dapat memberikan komentar dan diskusi terkait pengaduan yang diajukan.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h5>Kategorisasi</h5>
+                    <p class="text-muted">Penggunaan labels untuk mengkategorikan pengaduan berdasarkan jenis dan status.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h5>Pencarian Mudah</h5>
+                    <p class="text-muted">Fitur pencarian GitHub yang powerful untuk menemukan pengaduan spesifik.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h5>Notifikasi Real-time</h5>
+                    <p class="text-muted">Notifikasi otomatis via email ketika ada update pada pengaduan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Guide -->
+    <section id="setup" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Panduan Setup</h2>
+                <p class="text-muted">Ikuti langkah berikut untuk mengaktifkan GitHub Integration</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Step 1 -->
+                    <div class="step-card card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="step-number me-3">1</div>
+                                <div class="flex-grow-1">
+                                    <h5>Buka GitHub Settings</h5>
+                                    <p>Masuk ke akun GitHub Anda dan buka halaman Personal Access Tokens</p>
+                                    <a href="https://github.com/settings/tokens" target="_blank" class="btn btn-outline-primary">
+                                        <i class="fab fa-github me-2"></i>Buka GitHub Settings
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="step-number me-3">2</div>
+                                <div class="flex-grow-1">
+                                    <h5>Generate New Token</h5>
+                                    <p>Klik "Generate new token (classic)" dan isi form berikut:</p>
+                                    <ul>
+                                        <li><strong>Note:</strong> "Pengaduan Warga App"</li>
+                                        <li><strong>Expiration:</strong> Pilih sesuai kebutuhan</li>
+                                        <li><strong>Scopes:</strong> Centang "public_repo"</li>
+                                    </ul>
+                                    <div class="alert alert-warning">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>
+                                        <strong>Penting:</strong> Pastikan scope "public_repo" dipilih agar aplikasi dapat membuat issues.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="step-number me-3">3</div>
+                                <div class="flex-grow-1">
+                                    <h5>Copy Token</h5>
+                                    <p>Setelah token dibuat, copy token tersebut. Token akan terlihat seperti ini:</p>
+                                    <div class="code-block">
+                                        ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                    </div>
+                                    <div class="alert alert-danger mt-2">
+                                        <i class="fas fa-shield-alt me-2"></i>
+                                        <strong>Keamanan:</strong> Jangan bagikan token ini kepada siapapun!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="step-number me-3">4</div>
+                                <div class="flex-grow-1">
+                                    <h5>Setup di Aplikasi</h5>
+                                    <p>Buka aplikasi dan masukkan token di pengaturan GitHub Integration</p>
+                                    <ol>
+                                        <li>Login ke aplikasi</li>
+                                        <li>Klik tombol "Setup GitHub" di dashboard</li>
+                                        <li>Paste token yang sudah dicopy</li>
+                                        <li>Klik "Simpan Token"</li>
+                                    </ol>
+                                    <a href="app.html" class="btn btn-primary">
+                                        <i class="fas fa-rocket me-2"></i>Buka Aplikasi
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Cara Kerja</h2>
+                <p class="text-muted">Bagaimana pengaduan disimpan sebagai GitHub Issues</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-plus-circle text-primary me-2"></i>Pengaduan Baru</h5>
+                            <p>Ketika warga membuat pengaduan baru:</p>
+                            <ul>
+                                <li>Data pengaduan diformat sebagai GitHub Issue</li>
+                                <li>Judul: "[PENGADUAN] Judul Pengaduan"</li>
+                                <li>Labels: "pengaduan", "kategori:xxx", "status:pending"</li>
+                                <li>Body berisi detail lengkap pengaduan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-edit text-success me-2"></i>Update Status</h5>
+                            <p>Ketika admin mengubah status:</p>
+                            <ul>
+                                <li>Label status diperbarui (pending/process/completed)</li>
+                                <li>Komentar baru ditambahkan dengan tanggapan admin</li>
+                                <li>Timestamp otomatis tercatat</li>
+                                <li>Notifikasi dikirim ke pelapor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Contoh GitHub Issue</h2>
+                <p class="text-muted">Begini tampilan pengaduan di GitHub</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="fab fa-github me-2"></i>
+                                [PENGADUAN] Jalan Rusak di Depan Sekolah #1
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="badge bg-warning me-2">pengaduan</span>
+                                <span class="badge bg-info me-2">kategori:infrastruktur</span>
+                                <span class="badge bg-secondary">status:pending</span>
+                            </div>
+                            
+                            <h6>Detail Pengaduan</h6>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td width="100"><strong>Pelapor:</strong></td>
+                                    <td>Ahmad Rizki</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td>ahmad@email.com</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kategori:</strong></td>
+                                    <td>Infrastruktur</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lokasi:</strong></td>
+                                    <td>Jl. Pendidikan No. 123</td>
+                                </tr>
+                            </table>
+                            
+                            <h6>Deskripsi</h6>
+                            <p>Jalan di depan SD Negeri 1 mengalami kerusakan parah dengan banyak lubang yang membahayakan pengendara.</p>
+                            
+                            <hr>
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>
+                                Dibuat melalui Sistem Pengaduan Warga
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-bullhorn me-2"></i>Sistem Pengaduan Warga</h5>
+                    <p class="mb-0">Transparansi melalui teknologi</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2024 Haruu01. MIT License.</p>
+                    <div class="mt-2">
+                        <a href="https://github.com/Haruu01/pengaduan-warga" class="text-white me-3">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                        <a href="https://github.com/Haruu01/pengaduan-warga/issues" class="text-white">
+                            <i class="fas fa-bug"></i> Issues
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

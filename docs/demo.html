@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Sistem Pengaduan Warga</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .demo-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .demo-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .nav-pills .nav-link.active {
+            background-color: #667eea;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .btn-primary {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        .btn-primary:hover {
+            background-color: #5a6fd8;
+            border-color: #5a6fd8;
+        }
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .status-pending { background-color: #fff3cd; color: #856404; }
+        .status-process { background-color: #d1ecf1; color: #0c5460; }
+        .status-completed { background-color: #d4edda; color: #155724; }
+        .status-rejected { background-color: #f8d7da; color: #721c24; }
+        .photo-preview {
+            max-width: 100px;
+            max-height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container d-flex align-items-center py-5">
+        <div class="container">
+            <!-- Header -->
+            <div class="text-center text-white mb-4">
+                <h1><i class="fas fa-bullhorn me-2"></i>Demo Sistem Pengaduan Warga</h1>
+                <p class="lead">Simulasi aplikasi pengaduan masyarakat dengan fitur upload foto</p>
+                <a href="index.html" class="btn btn-outline-light"><i class="fas fa-arrow-left me-2"></i>Kembali ke Home</a>
+            </div>
+
+            <!-- Demo Card -->
+            <div class="demo-card p-4">
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-pills mb-4" id="demoTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="user-tab" data-bs-toggle="pill" data-bs-target="#user-demo" type="button" role="tab">
+                            <i class="fas fa-user me-2"></i>Dashboard Warga
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="admin-tab" data-bs-toggle="pill" data-bs-target="#admin-demo" type="button" role="tab">
+                            <i class="fas fa-user-tie me-2"></i>Dashboard Admin
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="form-tab" data-bs-toggle="pill" data-bs-target="#form-demo" type="button" role="tab">
+                            <i class="fas fa-plus me-2"></i>Form Pengaduan
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="demoTabContent">
+                    <!-- User Dashboard -->
+                    <div class="tab-pane fade show active" id="user-demo" role="tabpanel">
+                        <h4><i class="fas fa-tachometer-alt me-2"></i>Dashboard Warga</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-file-alt fa-2x mb-2"></i>
+                                        <h5>5</h5>
+                                        <small>Total Pengaduan</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-warning text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-clock fa-2x mb-2"></i>
+                                        <h5>2</h5>
+                                        <small>Menunggu</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-cog fa-2x mb-2"></i>
+                                        <h5>2</h5>
+                                        <small>Diproses</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-check fa-2x mb-2"></i>
+                                        <h5>1</h5>
+                                        <small>Selesai</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Pengaduan Terbaru</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Judul</th>
+                                        <th>Kategori</th>
+                                        <th>Status</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#000001</td>
+                                        <td>Jalan Rusak di Depan Sekolah</td>
+                                        <td>Infrastruktur</td>
+                                        <td><span class="status-badge status-process">Diproses</span></td>
+                                        <td>22/07/2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#000002</td>
+                                        <td>Lampu Jalan Mati</td>
+                                        <td>Infrastruktur</td>
+                                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                                        <td>21/07/2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#000003</td>
+                                        <td>Saluran Air Tersumbat</td>
+                                        <td>Kebersihan</td>
+                                        <td><span class="status-badge status-completed">Selesai</span></td>
+                                        <td>20/07/2024</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Admin Dashboard -->
+                    <div class="tab-pane fade" id="admin-demo" role="tabpanel">
+                        <h4><i class="fas fa-users-cog me-2"></i>Dashboard Admin</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-file-alt fa-2x mb-2"></i>
+                                        <h5>25</h5>
+                                        <small>Total Pengaduan</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-warning text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-clock fa-2x mb-2"></i>
+                                        <h5>8</h5>
+                                        <small>Menunggu</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-cog fa-2x mb-2"></i>
+                                        <h5>12</h5>
+                                        <small>Diproses</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-check fa-2x mb-2"></i>
+                                        <h5>5</h5>
+                                        <small>Selesai</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Kelola Pengaduan dengan Foto</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Pelapor</th>
+                                        <th>Judul</th>
+                                        <th>Foto</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#000001</td>
+                                        <td>
+                                            <strong>Ahmad Rizki</strong><br>
+                                            <small class="text-muted">ahmad@email.com</small>
+                                        </td>
+                                        <td>Jalan Rusak di Depan Sekolah</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="showPhotoModal('Jalan Rusak')">
+                                                <i class="fas fa-image"></i> Lihat Foto
+                                            </button>
+                                        </td>
+                                        <td><span class="status-badge status-process">Diproses</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success" onclick="updateStatus('completed')">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#000002</td>
+                                        <td>
+                                            <strong>Siti Nurhaliza</strong><br>
+                                            <small class="text-muted">siti@email.com</small>
+                                        </td>
+                                        <td>Lampu Jalan Mati Total</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="showPhotoModal('Lampu Jalan')">
+                                                <i class="fas fa-image"></i> Lihat Foto
+                                            </button>
+                                        </td>
+                                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-info" onclick="updateStatus('process')">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Form Pengaduan -->
+                    <div class="tab-pane fade" id="form-demo" role="tabpanel">
+                        <h4><i class="fas fa-plus-circle me-2"></i>Form Pengaduan Baru</h4>
+                        <form id="complaintForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Kategori</label>
+                                    <select class="form-select" required>
+                                        <option value="">Pilih Kategori</option>
+                                        <option value="infrastruktur">Infrastruktur</option>
+                                        <option value="kebersihan">Kebersihan</option>
+                                        <option value="keamanan">Keamanan</option>
+                                        <option value="pelayanan">Pelayanan Publik</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Lokasi</label>
+                                    <input type="text" class="form-control" placeholder="Contoh: Jl. Merdeka No. 123" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Judul Pengaduan</label>
+                                    <input type="text" class="form-control" placeholder="Contoh: Jalan Rusak di Depan Sekolah" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Deskripsi</label>
+                                    <textarea class="form-control" rows="4" placeholder="Jelaskan detail pengaduan Anda..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Upload Foto</label>
+                                    <input type="file" class="form-control" accept="image/*" onchange="previewImage(this)">
+                                    <small class="text-muted">Format: JPG, PNG, GIF. Maksimal 5MB</small>
+                                    <div id="imagePreview" class="mt-2"></div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Kirim Pengaduan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="modal fade" id="photoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Foto Pengaduan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="modalPhotoContent">
+                        <!-- Photo will be loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Show photo modal
+        function showPhotoModal(title) {
+            const modal = new bootstrap.Modal(document.getElementById('photoModal'));
+            const content = document.getElementById('modalPhotoContent');
+            
+            // Create demo photo with icon
+            content.innerHTML = `
+                <div class="bg-light p-5 rounded">
+                    <i class="fas fa-image fa-5x text-muted mb-3"></i>
+                    <h5>Demo Foto: ${title}</h5>
+                    <p class="text-muted">Ini adalah simulasi tampilan foto pengaduan</p>
+                    <small>Dalam aplikasi asli, foto akan ditampilkan di sini</small>
+                </div>
+            `;
+            
+            modal.show();
+        }
+
+        // Update status
+        function updateStatus(status) {
+            const statusText = {
+                'pending': 'Menunggu',
+                'process': 'Diproses', 
+                'completed': 'Selesai',
+                'rejected': 'Ditolak'
+            };
+            
+            alert(`Status berhasil diubah menjadi: ${statusText[status]}`);
+        }
+
+        // Preview uploaded image
+        function previewImage(input) {
+            const preview = document.getElementById('imagePreview');
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.innerHTML = `
+                        <div class="mt-2">
+                            <img src="${e.target.result}" class="photo-preview border" alt="Preview">
+                            <p class="small text-success mt-1">
+                                <i class="fas fa-check"></i> Foto berhasil dipilih
+                            </p>
+                        </div>
+                    `;
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            alert('✅ Pengaduan berhasil dikirim!\n\nDalam aplikasi asli, data akan disimpan ke database dan admin akan menerima notifikasi.');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('imagePreview').innerHTML = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Allow access to images
+Options -Indexes
+
+# Allow common image formats
+<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

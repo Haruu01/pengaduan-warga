@@ -1,0 +1,95 @@
+# GitHub Pages Configuration for Sistem Pengaduan Warga
+
+title: "Sistem Pengaduan Warga"
+description: "Aplikasi web untuk mengelola pengaduan masyarakat dengan fitur upload foto dan dashboard admin yang lengkap"
+url: "https://Haruu01.github.io"
+baseurl: "/pengaduan-warga"
+
+# Repository info
+repository: "Haruu01/pengaduan-warga"
+
+# Author info
+author:
+  name: "Haruu01"
+  email: "haruu01@example.com"
+  github: "Haruu01"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# SEO settings
+lang: id
+locale: id_ID
+
+# Social links
+social:
+  github: "Haruu01"
+  email: "haruu01@example.com"
+
+# Google Analytics (optional)
+# google_analytics: "UA-XXXXXXXX-X"
+
+# GitHub Pages specific settings
+github:
+  repository_url: "https://github.com/Haruu01/pengaduan-warga"
+  repository_name: "pengaduan-warga"
+  owner_name: "Haruu01"
+  
+# Project info
+project:
+  name: "Sistem Pengaduan Warga"
+  version: "1.0.0"
+  license: "MIT"
+  php_version: "7.4+"
+  mysql_version: "5.7+"
+  
+# Features
+features:
+  - "Upload foto pengaduan"
+  - "Dashboard admin dengan modal preview"
+  - "Responsive design"
+  - "Security features"
+  - "Export laporan"
+  - "Real-time status tracking"
